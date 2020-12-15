@@ -11,24 +11,28 @@
     
 </head>
 
-<body class="grid items-center justify-center h-screen">
-    <div x-data="App()" @click.away="show = false">
-        <button @click="show = ! show">Links</button>
+<body class="p-12">
 
-        <div 
-            class="absolute bg-black text-white py-2 rounded mt-1" 
-            x-show="show"
-            x-transition:enter="transition duration-200 transform ease-out"
-            x-transition:enter-start="scale-75"
-            x-transition:leave="transition duration-100 transform ease-in"
-            x-transition:leave-end="opacity-0 scale-90"
-            >
-
-            <a class="block hover:bg-gray-800 text-xs py-px px-4" href="#">Edit</a>
-            <a class="block hover:bg-gray-800 text-xs py-px px-4" href="#">Delete</a>
-            <a class="block hover:bg-gray-800 text-xs py-px px-4" href="#">Report Spam</a>
-        </div>
+    <div x-data>
+        <button @click="$dispatch('flash','hi over there!')">Trigger Flash Button</button>
     </div>
+
+    <!-- Flash -->
+    <div 
+        x-data="App()"
+        x-show.transition.opacity.scale.75.duration.5000m="show"
+        @flash.window="
+            show = true; 
+            message = $event.detail;
+
+            setTimeout(() => show = false, 3000);
+            "
+        x-text="message"
+        class="fixed bottom-0 right-0 mr-4 bg-blue-500 text-white p-4 rounded"
+    >
+         
+    </div>
+
 </body>
 
 </html>
