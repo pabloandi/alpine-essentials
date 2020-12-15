@@ -1,0 +1,22 @@
+{
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
+  "main": "index.js",
+  "author": "Pablo Diaz <pabloandi@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@webpack-cli/init": "^1.0.3",
+    "alpinejs": "^2.7.3",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "terser-webpack-plugin": "^5.0.3",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
