@@ -1,5 +1,5 @@
 import 'alpinejs'
 
-import taskApp from './components/TaskApp'
+import App from './components/App'
 
-window.taskApp = taskApp;
+window.App = App;

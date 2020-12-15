@@ -10,35 +10,24 @@
     <script src="/main.js" defer></script>
     
 </head>
-<body class="p-10 max-w-lg mx-auto">
-    
-    <div class="bg-gray-300 px-10 py-6 rounded" x-data="taskApp()">
-        <form @submit.prevent="submit()">
-            <input 
-                type="text" 
-                placeholder="Go to the market ..." 
-                x-model="newTask" 
-                class="w-full px-1"
-            >
-        </form>
 
-        <ul class="list-disc mt-3">
-            <template 
-                x-for="(task, index) in tasks" 
-                :key="index"
-            >
-                <li @click="task.completed = ! task.completed">
-                    <input type="checkbox" x-model="task.completed">
-                    <span x-text="task.body" class="cursor-pointer" :class="{'line-through' : task.completed}"></span>
-                </li>
-            </template>
-            
-        </ul>
-        
+<body class="grid items-center justify-center h-screen">
+    <div x-data="App()">
+        <div class="w-12 h-12">
+            <div 
+                class="bg-green-400 w-full h-full"
+                x-show="show"
+                x-transition:enter="transition transform duration-1000"
+                x-transition:enter-start="opacity-0 scale-125"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition duration-200"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+            ></div>
+
+        </div>
+        <button @click="show = ! show">Toggle</button>
     </div>
-    
-    
-    
-    
 </body>
+
 </html>
